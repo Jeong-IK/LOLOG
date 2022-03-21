@@ -1,7 +1,7 @@
 # What is your Main Cha,pion??
 
 
-#사용 언어
+# 사용 언어
 <code>JavaScript, HTML, CSS</code>
 
 # 기능
