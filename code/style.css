@@ -1,20 +1,6 @@
 @charset "utf-8";
 
-body {
-  background-color: #81acff;
-  margin: auto;
-}
-
-.search-form {
-  height: 40px;
-}
-
-.Logo {
-  width: 80px;
-}
-
-.result-form {
-  width: auto;
-}
-.1st_champion {
+img {
+  display: block;
+  margin: 0px auto;
 }
