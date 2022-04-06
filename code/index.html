@@ -6,27 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Insert your ID</title>
     <script src="script.js"></script>
-    <link href="style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <h1>Index.html</h1>
-    <div>
-      <img src="../img/Logo_Oren.gif" class="logo" />
-    </div>
-    <div>
+    <div class="search-form">
       <table>
         <tr>
+          <td class="Logo">
+            <img src="../img/Logo/Logo.png" width="180px" height="60px" />
+          </td>
           <td>닉네임</td>
           <td>
             <input type="text" id="userName" name="userName" />
           </td>
           <td>
-            <input
-              type="button"
-              onclick="search_champion()"
-              value="검색"
-              class=""
-            />
+            <input type="button" onclick="MChampion()" value="검색" class="" />
           </td>
         </tr>
       </table>
