@@ -1,3 +1,5 @@
+import { MChampion } from "../search.js";
+
 const render_result = (userID, champion) => {
   let result_form = `
   <div><p>${userID}</p></div>
