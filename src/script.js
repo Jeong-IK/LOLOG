@@ -1,9 +1,6 @@
 import { render_result, search_form } from "./render/render.js";
 
 const apikey = "RGAPI-a60c9f12-8e05-4c43-afc8-7852fef7e305";
-
-search_form();
-
 //SUMMONER By userNickName
 function Whoareyou() {
   const response = fetch(GetID_url);
@@ -24,3 +21,5 @@ async function MChampion() {
     console.log(e);
   }
 }
+
+search_form();
