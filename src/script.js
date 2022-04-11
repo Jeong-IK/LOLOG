@@ -8,7 +8,5 @@ const search_submit = document.getElementById("search_champion");
 search_submit.addEventListener("submit", (form) => {
   form.preventDefault();
   const nickname = document.getElementById("userName").value;
-  console.log(nickname);
-  const champion = MChampion(nickname);
-  render_result(champion);
+  MChampion(nickname).then((result) => render_result(result));
 });

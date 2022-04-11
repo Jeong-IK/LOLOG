@@ -11,11 +11,13 @@ const Whoareyou = (nickname) => {
 const MChampion = async (nickname) => {
   try {
     const userID = await Whoareyou(nickname);
-    console.log(userID);
     const GETMC_url = `https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${userID.id}?api_key=${apikey}`;
-    const champion = fetch(GETMC_url).then((res) => res.json());
+    const champion = await fetch(GETMC_url)
+      .then((res) => res.json())
+      .then((list) => list[0]);
+    console.log(`search.js`);
     console.log(champion);
-    //rander(champion);
+    return champion;
   } catch (e) {
     console.log(e);
   }
