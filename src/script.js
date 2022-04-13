@@ -1,12 +1,12 @@
-import { render_result, search_form } from "./render/render.js";
-import { MChampion, Whoareyou } from "./search.js";
+import { renderResult, searchForm } from "./render/render.js";
+import { championValue } from "./search.js";
 
-search_form();
+searchForm();
 
-const search_submit = document.getElementById("search_champion");
+const indexForm = document.getElementById("search_champion");
 
-search_submit.addEventListener("submit", (form) => {
+indexForm.addEventListener("submit", (form) => {
   form.preventDefault();
   const nickname = document.getElementById("userName").value;
-  MChampion(nickname).then((result) => render_result(result));
+  championValue(nickname).then((result) => renderResult(result));
 });
