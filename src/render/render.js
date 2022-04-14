@@ -1,5 +1,6 @@
 const renderResult = (resultValue) => {
-  const profilePath = "../../img/championProfile/championId_";
+  const championPath = "../../img/champion/";
+  const userPath = "../../img/User/";
   const userValue = resultValue[0];
   const championValue = resultValue[1];
 
@@ -9,32 +10,43 @@ const renderResult = (resultValue) => {
     <div class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18" id="menuBar">
       <img class="justify-self-center my-2 mx-5" src="../../img/Logo/Logo_1.png" style="width:62px; height:62px;">
     </div>
-
-    <div id="resultForm" class="flex flex-col space-y-5 bg-blue-400 my-auto">
+    <!--결과 출력 폼-->
+    <div id="resultForm" class="flex flex-col space-y-5 bg-blue-400" style="margin-top:100px">
       <!-- 이용자 검색 결과 출력 -->
-      <div id="userForm" class="container w-screen bg-white rounded-lg shadow-xlg">
-        <img src="../../img/userProfile/nonPlayer.jpeg" class="p-5" style="width:150px; height:150px;">
+      <div id="userForm" class="container w-screen bg-white flex flex-row rounded-lg shadow-xlg">
+        <div id="profile" class="text-center h-fit">
+          <img src="${userPath}/userProfile/nonPlayer.jpeg" class="pl-5 pt-5" style="width:150px; height:150px;">
+          <span style="background-image: url('${userPath}/userProfile/Level.png'); background-size:100%; font-size:14px; color:rgb(234, 189, 86); position:absolute; width:44px; height:20px; box-sizing:border-box; text-align:center; margin-top:-10px; margin-left:-9px;">${userValue.summonerLevel}</span><br>
+        </div>
+        <div class="self-center">
+          <span class="mx-5 text-xl"><strong>${userValue.name}</strong></span>
+        </div>
       </div>
         <!-- 챔피언 검색 결과 출력 -->
-        <div id="championValue" class="bg-white rounded-lg shadow-xlg">
-          <div>
-            <div class="p-3"><img class="rounded-full" src="${profilePath}${championValue[0].championId}.png" style="width:100px;height:100px"></div>
+        <div id="championValue" class="bg-white rounded-xl shadow-xlg">
+        <div class="flex flex-row self-center">
+            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[0].championId}.png" style="width:100px;height:100px"></div>
+            <div class="p-3"><img src="${championPath}championLevel/${championValue[0].championLevel}.png"></div>
           </div>
 
-          <div>
-            <div class="p-3"><img class="rounded-full" src="${profilePath}${championValue[1].championId}.png" style="width:100px;height:100px"></div>
+          <div class="flex flex-row self-center">
+            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[1].championId}.png" style="width:100px;height:100px"></div>
+            <div class="p-3"><img src="${championPath}championLevel/${championValue[1].championLevel}.png"></div>
           </div>
 
-          <div>
-            <div class="p-3"><img class="rounded-full" src="${profilePath}${championValue[2].championId}.png" style="width:100px;height:100px"></div>
+          <div class="flex flex-row self-center">
+            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[2].championId}.png" style="width:100px;height:100px"></div>
+            <div class="p-3"><img src="${championPath}championLevel/${championValue[2].championLevel}.png"></div>
           </div>
 
-          <div>
-            <div class="p-3"><img class="rounded-full" src="${profilePath}${championValue[3].championId}.png" style="width:100px;height:100px"></div>
+          <div class="flex flex-row self-center">
+            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[3].championId}.png" style="width:100px;height:100px"></div>
+            <div class="p-3"><img src="${championPath}championLevel/${championValue[3].championLevel}.png"></div>
           </div>
 
-          <div>
-            <div class="p-3"><img class="rounded-full" src="${profilePath}${championValue[4].championId}.png" style="width:100px;height:100px"></div>
+          <div class="flex flex-row self-center">
+            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[4].championId}.png" style="width:100px;height:100px"></div>
+            <div class="p-3"><img src="${championPath}championLevel/${championValue[4].championLevel}.png"></div>
           </div>
         </div>
       </div>

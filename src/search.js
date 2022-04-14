@@ -7,10 +7,16 @@ const getUserId = (nickname) => {
   const response = fetch(GetID_url);
   return response.then((res) => res.json());
 };
-
-const championValue = async (nickname) => {
+const getRanked = (userID) => {
+  const getRankUrl = `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${userID}?api_key=${apikey}`;
+  const response = fetch(getRankUrl);
+  return response.then((res) => res.json());
+};
+const getChampionValue = async (nickname) => {
   try {
     const userID = await getUserId(nickname);
+    const userRank = await getRanked(userID.id);
+    console.log(userRank);
     const GETMC_url = `https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${userID.id}?api_key=${apikey}`;
     const champion = await fetch(GETMC_url).then((res) => res.json());
     console.log(userID);
@@ -21,4 +27,4 @@ const championValue = async (nickname) => {
   }
 };
 
-export { championValue, getUserId };
+export { getChampionValue, getUserId };
