@@ -3,25 +3,40 @@ const renderResult = (resultValue) => {
   const userPath = "../../img/User/";
   const userValue = resultValue[0];
   const championValue = resultValue[1];
+  const rankValue = resultValue[2];
 
   const resultForm = `
   <div class="flex justify-center h-screen bg-blue-400">
   <!-- 메뉴 바 -->
-    <div class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18" id="menuBar">
+    <div class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18" id="menuBar"l>
       <img class="justify-self-center my-2 mx-5" src="../../img/Logo/Logo_1.png" style="width:62px; height:62px;">
     </div>
     <!--결과 출력 폼-->
     <div id="resultForm" class="flex flex-col space-y-5 bg-blue-400" style="margin-top:100px">
       <!-- 이용자 검색 결과 출력 -->
       <div id="userForm" class="container w-screen bg-white flex flex-row rounded-lg shadow-xlg">
-        <div id="profile" class="text-center h-fit">
+        <div id="profile" class="text-center w-1/8">
           <img src="${userPath}/userProfile/nonPlayer.jpeg" class="pl-5 pt-5" style="width:150px; height:150px;">
           <span style="background-image: url('${userPath}/userProfile/Level.png'); background-size:100%; font-size:14px; color:rgb(234, 189, 86); position:absolute; width:44px; height:20px; box-sizing:border-box; text-align:center; margin-top:-10px; margin-left:-9px;">${userValue.summonerLevel}</span><br>
         </div>
-        <div class="self-center">
-          <span class="mx-5 text-xl"><strong>${userValue.name}</strong></span>
+
+        <div class="self-center w-1/8 h-150">
+          <span class="mx-6 text-xl"><strong>${userValue.name}</strong></span>
         </div>
-      </div>
+
+        <div id="rankValue" class="flex flex-rows justify-self-end text-center">
+          <div id="soloRank" class="flex flex-col ml-96">
+           <span class="mt-1"><strong>${rankValue[0].queueType}</strong></span>
+           <img src="${userPath}userRank/${rankValue[0].tier}.png" style="width:150px; height:150px;">
+           <spanclass="mb-1"><strong>${rankValue[0].tier}</strong></spanclass=>
+          </div>
+          <div id="flexRank" class="flex flex-col mx-5">
+           <span class="mt-1"><strong>${rankValue[1].queueType}</strong></span>
+           <img src="${userPath}userRank/${rankValue[1].tier}.png" style="width:150px; height:150px;"">
+           <span class="mb-1"><strong>${rankValue[1].tier}</strong></span>
+          </div>
+        </div>
+    </div>
         <!-- 챔피언 검색 결과 출력 -->
         <div id="championValue" class="bg-white rounded-xl shadow-xlg">
         <div class="flex flex-row self-center">
