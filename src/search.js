@@ -9,12 +9,16 @@ const getUserId = (nickname) => {
 };
 const getRanked = async (userID) => {
   const unrank = [
-    { queueType: "RANKED_SOLO_5x5", tier: "UNRANK" },
-    { queueType: "RANKED_FLEX_SR", tier: "UNRANK" },
+    { queueType: "솔로랭크", tier: "UNRANK", rank: "" },
+    { queueType: "자유랭크", tier: "UNRANK", rank: "" },
   ];
   const getRankUrl = `https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${userID}?api_key=${apikey}`;
   const response = await fetch(getRankUrl).then((res) => res.json());
+  console.log(response);
+
   if (response.length) {
+    response[0].queueType = "솔로랭크";
+    response[1].queueType = "자유랭크";
     return response;
   } else {
     return unrank;

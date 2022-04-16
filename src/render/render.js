@@ -6,39 +6,36 @@ const renderResult = (resultValue) => {
   const rankValue = resultValue[2];
 
   const resultForm = `
-  <div class="flex justify-center h-screen bg-blue-400">
+  <div class="flex justify-center h-full bg-blue-400">
   <!-- 메뉴 바 -->
-    <div class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18" id="menuBar"l>
+    <div id="menuBar" class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18">
       <img class="justify-self-center my-2 mx-5" src="../../img/Logo/Logo_1.png" style="width:62px; height:62px;">
     </div>
     <!--결과 출력 폼-->
-    <div id="resultForm" class="flex flex-col space-y-5 bg-blue-400" style="margin-top:100px">
+    <div id="resultForm" class="flex flex-col space-y-10 bg-blue-400 mb-10" style="margin-top:100px">
       <!-- 이용자 검색 결과 출력 -->
       <div id="userForm" class="container w-screen bg-white flex flex-row rounded-lg shadow-xlg">
-        <div id="profile" class="text-center w-1/8">
+        <div id="profile" class="text-center w-1/6">
           <img src="${userPath}/userProfile/nonPlayer.jpeg" class="pl-5 pt-5" style="width:150px; height:150px;">
-          <span style="background-image: url('${userPath}/userProfile/Level.png'); background-size:100%; font-size:14px; color:rgb(234, 189, 86); position:absolute; width:44px; height:20px; box-sizing:border-box; text-align:center; margin-top:-10px; margin-left:-9px;">${userValue.summonerLevel}</span><br>
+          <span style="background-image: url('${userPath}/userProfile/Level.png'); background-size:100%; font-size:14px; color:rgb(234, 189, 86); position:absolute; width:44px; height:20px; box-sizing:border-box; text-align:center; margin-top:-10px; margin-left:-60px;">${userValue.summonerLevel}</span><br>
+          <span class="mx-6 text-xl" style="margin-left:-60px;"><strong>${userValue.name}</strong></span>
         </div>
 
-        <div class="self-center w-1/8 h-150">
-          <span class="mx-6 text-xl"><strong>${userValue.name}</strong></span>
-        </div>
-
-        <div id="rankValue" class="flex flex-rows justify-self-end text-center">
-          <div id="soloRank" class="flex flex-col ml-96">
-           <span class="mt-1"><strong>${rankValue[0].queueType}</strong></span>
-           <img src="${userPath}userRank/${rankValue[0].tier}.png" style="width:150px; height:150px;">
-           <spanclass="mb-1"><strong>${rankValue[0].tier}</strong></spanclass=>
+        <div id="rankValue" class="flex flex-rows place-content-end w-5/6">
+          <div id="soloRank" class="flex flex-col mx-6 text-center">
+            <span class="mt-1"><strong>${rankValue[0].queueType}</strong></span>
+            <img src="${userPath}userRank/${rankValue[0].tier}.png" style="width:150px; height:150px;">
+            <spanclass="mb-1"><strong>${rankValue[0].tier} ${rankValue[0].rank}</strong></spanclass=>
           </div>
-          <div id="flexRank" class="flex flex-col mx-5">
-           <span class="mt-1"><strong>${rankValue[1].queueType}</strong></span>
-           <img src="${userPath}userRank/${rankValue[1].tier}.png" style="width:150px; height:150px;"">
-           <span class="mb-1"><strong>${rankValue[1].tier}</strong></span>
+          <div id="flexRank" class="flex flex-col mx-6 text-center">
+            <span class="mt-1"><strong>${rankValue[1].queueType}</strong></span>
+            <img src="${userPath}userRank/${rankValue[1].tier}.png" style="width:150px; height:150px;"">
+            <span class="mb-1"><strong>${rankValue[1].tier} ${rankValue[1].rank}</strong></span>
           </div>
         </div>
     </div>
         <!-- 챔피언 검색 결과 출력 -->
-        <div id="championValue" class="bg-white rounded-xl shadow-xlg">
+        <div id="championValue" class="bg-white rounded-xl shadow-xlg p-3">
         <div class="flex flex-row self-center">
             <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[0].championId}.png" style="width:100px;height:100px"></div>
             <div class="p-3"><img src="${championPath}championLevel/${championValue[0].championLevel}.png"></div>
