@@ -34,8 +34,10 @@ const renderResult = (resultValue) => {
           </div>
         </div>
     </div>
-        <!-- 챔피언 검색 결과 출력 -->
-        <div id="championValue" class="bg-white rounded-xl shadow-xlg p-3">
+    <!--챔피언 & 매치 정보 출력-->
+    <div class="flex flex row space-x-2">
+      <!-- 챔피언 검색 결과 출력 -->
+      <div id="championValue" class="bg-white rounded-xl shadow-xlg p-3 w-1/4">
         <div class="flex flex-row self-center">
             <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[0].championId}.png" style="width:100px;height:100px"></div>
             <div class="p-3"><img src="${championPath}championLevel/${championValue[0].championLevel}.png"></div>
@@ -60,9 +62,13 @@ const renderResult = (resultValue) => {
             <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[4].championId}.png" style="width:100px;height:100px"></div>
             <div class="p-3"><img src="${championPath}championLevel/${championValue[4].championLevel}.png"></div>
           </div>
-        </div>
       </div>
+      <!--매치 정보 출력-->
+      <div id="matchValueform"class="bg-white rounded-xl shadow-xlg p-3 w-3/4">
+        
+      <div>
     </div>
+  </div>
     `;
   root.innerHTML = resultForm;
 };
