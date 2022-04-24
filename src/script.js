@@ -9,7 +9,6 @@ indexForm.addEventListener("submit", (form) => {
   form.preventDefault();
   const nickname = document.getElementById("userName").value;
   getUservalue(nickname).then((result) => {
-    console.log(result);
     renderResult(result);
   });
 });

@@ -2,77 +2,89 @@ const renderResult = (resultValue) => {
   const championPath = "../../img/champion/";
   const userPath = "../../img/User/";
   const userValue = resultValue[0];
-  const championValue = resultValue[1];
+  const championValues = resultValue[1];
   const rankValue = resultValue[2];
+  const matchValues = resultValue[3];
+  const userValueform = `<div id="userForm" class="container w-screen bg-white flex flex-row rounded-lg shadow-xlg">
+  <div id="profile" class="text-center w-1/6">
+    <img src="${userPath}/userProfile/nonPlayer.jpeg" class="pl-5 pt-5" style="width:150px; height:150px;">
+    <span style="background-image: url('${userPath}/userProfile/Level.png'); background-size:100%; font-size:14px; color:rgb(234, 189, 86); position:absolute; width:44px; height:20px; box-sizing:border-box; text-align:center; margin-top:-10px; margin-left:-60px;">${userValue.summonerLevel}</span><br>
+    <span class="mx-6 text-xl" style="margin-left:-60px;"><strong>${userValue.name}</strong></span>
+  </div>
+
+  <div id="rankValue" class="flex flex-rows place-content-end w-5/6">
+    <div id="soloRank" class="flex flex-col mx-6 text-center">
+      <span class="mt-1"><strong>${rankValue[0].queueType}</strong></span>
+      <img src="${userPath}userRank/${rankValue[0].tier}.png" style="width:150px; height:150px;">
+      <spanclass="mb-1"><strong>${rankValue[0].tier} ${rankValue[0].rank}</strong></spanclass=>
+    </div>
+    <div id="flexRank" class="flex flex-col mx-6 text-center">
+      <span class="mt-1"><strong>${rankValue[1].queueType}</strong></span>
+      <img src="${userPath}userRank/${rankValue[1].tier}.png" style="width:150px; height:150px;"">
+      <span class="mb-1"><strong>${rankValue[1].tier} ${rankValue[1].rank}</strong></span>
+    </div>
+  </div>`;
+
+  const championValueform = championValues.map(
+    (championValue) => `<div class="flex flex-row self-center">
+  <div class="pl-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue.championId}.png" style="width:100px;height:100px"></div>
+  <div class="pr-3 place-content-end"><img src="${championPath}championLevel/${championValue.championLevel}.png"></div>
+</div>`
+  );
+
+  const matchValueform = matchValues.map((matchValue) => {
+    const color = matchValue.win ? "blue" : "red";
+    return `<div id="" class="flex flex-row w-full h-1/6 bg-${color}-400 rounded-xl">
+      <div id="winOrlose" class="text-center self-center px-4">
+        <strong>
+          ${matchValue.win ? "승리" : "패배"}
+        </strong>
+      </div>
+      <div id="championProfile" class="self-center px-4">
+        <img class="rounded-full w-24" src="${championPath}/championProfile/championId_${
+      matchValue.championId
+    }.png">
+      </div>
+      <div id="matchScore" class="self-center text-center px-4">
+        <span>
+            K/D/A<br>
+          <strong>
+            ${matchValue.kills}/${matchValue.deaths}/${matchValue.assists}
+          </strong>
+      </span>
+      </div>
+      <div class="text-center self-center px-5">
+        레벨 ${matchValue.champLevel}<br>
+        골드 ${matchValue.goldEarned}<br>
+        챔피언 피해량 ${matchValue.totalDamageDealtToChampions}<br>
+        미니언 처치 수 ${matchValue.totalMinionsKilled}
+      </div>
+    </div>`;
+  });
 
   const resultForm = `
-  <div class="flex justify-center h-full bg-blue-400">
-  <!-- 메뉴 바 -->
-    <div id="menuBar" class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18">
-      <img class="justify-self-center my-2 mx-5" src="../../img/Logo/Logo_1.png" style="width:62px; height:62px;">
-    </div>
+  <div class="flex justify-center h-screen bg-blue-400">
     <!--결과 출력 폼-->
-    <div id="resultForm" class="flex flex-col space-y-10 bg-blue-400 mb-10" style="margin-top:100px">
+    <div id="resultForm" class="flex flex-col space-y-3 bg-blue-400 mb-10" style="margin-top:100px">
       <!-- 이용자 검색 결과 출력 -->
-      <div id="userForm" class="container w-screen bg-white flex flex-row rounded-lg shadow-xlg">
-        <div id="profile" class="text-center w-1/6">
-          <img src="${userPath}/userProfile/nonPlayer.jpeg" class="pl-5 pt-5" style="width:150px; height:150px;">
-          <span style="background-image: url('${userPath}/userProfile/Level.png'); background-size:100%; font-size:14px; color:rgb(234, 189, 86); position:absolute; width:44px; height:20px; box-sizing:border-box; text-align:center; margin-top:-10px; margin-left:-60px;">${userValue.summonerLevel}</span><br>
-          <span class="mx-6 text-xl" style="margin-left:-60px;"><strong>${userValue.name}</strong></span>
-        </div>
-
-        <div id="rankValue" class="flex flex-rows place-content-end w-5/6">
-          <div id="soloRank" class="flex flex-col mx-6 text-center">
-            <span class="mt-1"><strong>${rankValue[0].queueType}</strong></span>
-            <img src="${userPath}userRank/${rankValue[0].tier}.png" style="width:150px; height:150px;">
-            <spanclass="mb-1"><strong>${rankValue[0].tier} ${rankValue[0].rank}</strong></spanclass=>
-          </div>
-          <div id="flexRank" class="flex flex-col mx-6 text-center">
-            <span class="mt-1"><strong>${rankValue[1].queueType}</strong></span>
-            <img src="${userPath}userRank/${rankValue[1].tier}.png" style="width:150px; height:150px;"">
-            <span class="mb-1"><strong>${rankValue[1].tier} ${rankValue[1].rank}</strong></span>
-          </div>
-        </div>
+      ${userValueform}
     </div>
     <!--챔피언 & 매치 정보 출력-->
     <div class="flex flex row space-x-2">
       <!-- 챔피언 검색 결과 출력 -->
-      <div id="championValue" class="bg-white rounded-xl shadow-xlg p-3 w-1/4">
-        <div class="flex flex-row self-center">
-            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[0].championId}.png" style="width:100px;height:100px"></div>
-            <div class="p-3"><img src="${championPath}championLevel/${championValue[0].championLevel}.png"></div>
-          </div>
-
-          <div class="flex flex-row self-center">
-            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[1].championId}.png" style="width:100px;height:100px"></div>
-            <div class="p-3"><img src="${championPath}championLevel/${championValue[1].championLevel}.png"></div>
-          </div>
-
-          <div class="flex flex-row self-center">
-            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[2].championId}.png" style="width:100px;height:100px"></div>
-            <div class="p-3"><img src="${championPath}championLevel/${championValue[2].championLevel}.png"></div>
-          </div>
-
-          <div class="flex flex-row self-center">
-            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[3].championId}.png" style="width:100px;height:100px"></div>
-            <div class="p-3"><img src="${championPath}championLevel/${championValue[3].championLevel}.png"></div>
-          </div>
-
-          <div class="flex flex-row self-center">
-            <div class="p-3"><img class="rounded-full" src="${championPath}championProfile/championId_${championValue[4].championId}.png" style="width:100px;height:100px"></div>
-            <div class="p-3"><img src="${championPath}championLevel/${championValue[4].championLevel}.png"></div>
-          </div>
+      <div id="championValue" class="bg-white rounded-xl shadow-xlg p-3 w-1/4 space-y-2">
+        ${championValueform.join("")}
       </div>
       <!--매치 정보 출력-->
-      <div id="matchValueform"class="bg-white rounded-xl shadow-xlg p-3 w-3/4">
-        
+      <div id="matchValueform"class="bg-white rounded-xl shadow-xlg p-3 w-3/4 space-y-2">
+        ${matchValueform.join("")}
       <div>
     </div>
   </div>
     `;
+
   root.innerHTML = resultForm;
 };
-
 //자바스크립트 컨벤션
 
 //let키워드 사용을 지양해야 하는 이유
@@ -80,10 +92,6 @@ const renderResult = (resultValue) => {
 const searchForm = () => {
   const root = document.getElementById("root");
   const search_temp = `<div class="flex justify-center h-screen bg-blue-400">
-    <!-- 메뉴바 -->
-    <div class="absolute top-0 w-screen h-20 bg-indigo-900 flex flex-row box-content h-18" id="menuBar">
-      <img class="justify-self-center my-2 mx-5" src="../../img/Logo/Logo_1.png" style="width:62px; height:62px;">
-    </div> 
     <!-- 이용자검색폼 -->
     <div class=" box-content h-1/3 w-1/5 fixed bg-white absolute inset-y-1/4 rounded-lg shadow-xlg" id="writeNickname">
       <div class=" box-content h-2/3 w-full grid justify-items-center">
@@ -95,7 +103,6 @@ const searchForm = () => {
           <input type="submit" value="검색">
         </form>
       </div>
-
     </div>
   </div>`;
   root.innerHTML = search_temp;
