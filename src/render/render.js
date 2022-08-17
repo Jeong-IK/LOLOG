@@ -1,6 +1,6 @@
 const renderResult = (resultValue) => {
-  const championPath = "../../img/champion/";
-  const userPath = "../../img/User/";
+  const championPath = "./img/champion/";
+  const userPath = "./img/User/";
   const userValue = resultValue[0];
   const championValues = resultValue[1];
   const rankValue = resultValue[2];
