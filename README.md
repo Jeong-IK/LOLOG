@@ -1,5 +1,6 @@
 # LOLOG
 
+[배포링크](https://jeong-ik.github.io/LOLOG.github.io/)
 
 ## 📚사용 언어
   <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> 
@@ -14,5 +15,4 @@
  - 전적을 출력
  - 가장 최근부터 차례대로 승리한 전적 출력
 
-## 실행법
-download -> GoLive 실행
+
