@@ -1,6 +1,10 @@
 # LOLOG
 <div align=center>
-  
+
+![Logo](https://user-images.githubusercontent.com/67920695/185165422-ff8d75e1-f003-49cd-8209-fb079fc529fe.jpg)
+
+<br>
+
 [배포링크](https://jeong-ik.github.io/LOLOG.github.io/)
 
   </div>
