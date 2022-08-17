@@ -95,7 +95,7 @@ const searchForm = () => {
     <!-- 이용자검색폼 -->
     <div class=" box-content h-1/3 w-1/5 fixed bg-white absolute inset-y-1/4 rounded-lg shadow-xlg" id="writeNickname">
       <div class=" box-content h-2/3 w-full grid justify-items-center">
-        <img class="justify-self-center m-8" src="../../img/Logo/Logo.jpg" style="width:200px; height:200px;">
+        <img class="justify-self-center m-8" src="./img/Logo/Logo.jpg" style="width:200px; height:200px;">
       </div>
       <div>
         <form id="search_champion">
