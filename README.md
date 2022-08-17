@@ -6,7 +6,9 @@
 
 <br>
 
-[배포링크](https://jeong-ik.github.io/LOLOG.github.io/)
+## [배포링크](https://jeong-ik.github.io/LOLOG.github.io/)
+
+JavaScript와 HTML 공부 및 실습을 위해 만든 웹 페이지
 
   </div>
   
